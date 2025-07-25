@@ -10,19 +10,6 @@
   --light-primary-color: #f1f8ec;
 }
 
-*{
-  box-sizing: border-box;
-}
-
-html,body{
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-  /* overflow-x: hidden; */
-  font-size: clamp(12px, 1.5vw, 18px);
-  font-family: "gilroy";
-}
 
 @font-face {
   font-family: "primary-font";
@@ -92,6 +79,23 @@ html,body{
   font-weight: 900;
   font-style: normal;
 }
+
+
+
+*{
+  box-sizing: border-box;
+}
+
+html,body{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  /* overflow-x: hidden; */
+  font-size: clamp(12px, 1.5vw, 18px);
+  font-family: "secondary-font";
+}
+
 
 .primary-font{
     font-family: "primary-font";
