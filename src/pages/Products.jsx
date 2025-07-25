@@ -140,6 +140,7 @@ const Products = () => {
             setFilteredProducts(productsData);
           }
         setShowFooter(true);
+
     }, [productsData, showFooter]);
     return (
         <div className='pt-[8rem] min-h-screen px-[2rem]'>
@@ -168,7 +169,7 @@ const Products = () => {
                     onMouseOver={(e)=>handleCategoryMouseOver(e,category,index)}
                     onMouseOut={(e)=>handleCategoryMouseOut(e,category,index)}
                     key={index}
-                    className={`product-category cursor-pointer list-none text-[1rem] px-[1rem] py-[0.5rem] rounded-md`}>
+                    className={`product-category secondary-font cursor-pointer list-none text-[1rem] px-[1rem] py-[0.5rem] rounded-md`}>
                         {category}
                     </li>
                 })}
