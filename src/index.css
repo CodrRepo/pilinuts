@@ -1,0 +1,77 @@
+@import "tailwindcss";
+/* @import 'lenis/dist/lenis.css'; */
+@import 'remixicon/fonts/remixicon.css';
+
+
+:root{
+  --primary-color: #7bbd49;
+  --secondary-color: #fff;
+  --dark-primary-color: #253816;
+  --light-primary-color: #f1f8ec;
+}
+
+*{
+  box-sizing: border-box;
+}
+
+html,body{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  /* overflow-x: hidden; */
+  font-size: clamp(12px, 1.5vw, 18px);
+  font-family: "gilroy";
+}
+
+@font-face {
+  font-family: "primary-font";
+  src: url("fonts/primary_font.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "secondary-font";
+  src: url("fonts/secondary_font.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+.primary-font{
+    font-family: "primary-font";
+}
+
+.secondary-font{
+    font-family: "gilroy";
+}
+
+
+@keyframes marqueeAnimation {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.marquee {
+  animation: marqueeAnimation 20s linear infinite;
+}
+
+.nav-link::before{
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 0%;
+    height: 1px;
+    background-color: var(--dark-primary-color);
+    z-index: -1;
+    transition: all 0.3s ease-in-out;
+}
+
+.nav-link:hover::before{
+    width: 100%;
+}
+
