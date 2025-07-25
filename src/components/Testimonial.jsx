@@ -1,15 +1,12 @@
-import React, { useRef, useState } from 'react';
-// Import Swiper React components
+import React, { useContext } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/pagination';
 
-// import required modules
 import { FreeMode, Pagination } from 'swiper/modules';
-import { div } from 'framer-motion/client';
+import { PHContext } from '../context/PHContextProviders';
 
 const Testimonial = () => {
 
@@ -56,13 +53,15 @@ const Testimonial = () => {
     },
   ];
 
+  const { isMobile } = useContext(PHContext);
+
 
   return (
     <div className='relative px-[2rem] z-[100]'>
       <Swiper
-        slidesPerView={3}
+        slidesPerView={isMobile ? 1 : 3}
         spaceBetween={30}
-        freeMode={true}
+        freeMode={isMobile?false:true}
         pagination={{
           clickable: true,
         }}
@@ -73,17 +72,17 @@ const Testimonial = () => {
           reviews.map((review, index) => {
             return (
               <SwiperSlide key={index}>
-                <div className="bg-white px-[2rem] flex flex-col justify-center items-center border-[1px] border-[var(--primary-color)] p-[1rem] rounded-md h-[40vh]">
+                <div className="bg-white p-[2rem] flex flex-col justify-center items-center border-[1px] border-[var(--primary-color)] rounded-xl md:rounded-md h-[40vh] md:h-[50vh] xl:h-[40vh]">
 
-                  <p className='user-select-none primary-font text-[1.4rem]'>{review.name}</p>
-                  <div className='flex gap-[0.1rem] text-yellow-300'>
-              <i className="ri-star-fill"></i>
-              <i className="ri-star-fill"></i>
-              <i className="ri-star-fill"></i>
-              <i className="ri-star-fill"></i>
-              <i className="ri-star-fill"></i>
-            </div>
-                  <p className='user-select-none secondary-font text-[1rem] mt-[1rem] text-center'>{review.review}</p>
+                  <p className='user-select-none primary-font text-[2.3rem] md:text-[1.4rem]'>{review.name}</p>
+                  <div className='flex gap-[0.1rem] text-[1.7rem] md:text-[1rem] text-yellow-300'>
+                    <i className="ri-star-fill"></i>
+                    <i className="ri-star-fill"></i>
+                    <i className="ri-star-fill"></i>
+                    <i className="ri-star-fill"></i>
+                    <i className="ri-star-fill"></i>
+                  </div>
+                  <p className='user-select-none secondary-font text-[1.8rem] md:text-[1rem] mt-[1.5rem] md:mt-[1rem] text-center'>{review.review}</p>
                 </div>
               </SwiperSlide>
             )

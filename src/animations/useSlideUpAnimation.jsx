@@ -1,11 +1,11 @@
 import React, { useRef } from 'react'
 import { useEffect } from 'react';
 import { gsap } from 'gsap';
-import { SplitText, CustomEase} from 'gsap/all'
+import { SplitText, CustomEase, ScrollTrigger} from 'gsap/all'
 import useSplitText from '../Utility/useSplitText'
 
 const useSlideUpAnimation = (selector, triggerp, start) => {
-    gsap.registerPlugin(CustomEase, SplitText);
+    gsap.registerPlugin(CustomEase, SplitText, ScrollTrigger);
     
     useEffect(()=>{
         document.fonts.ready.then(()=>{

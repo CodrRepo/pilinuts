@@ -17,8 +17,8 @@ const useMaskUpAnimation = (selector) => {
         },
         opacity: 0,
         clipPath: "inset(0% 0% 100% 0%)",
-        duration: 0.5,
-        stagger: 0.02,
+        duration: 1,
+        stagger: 0.03,
       })
     })
   }, [])

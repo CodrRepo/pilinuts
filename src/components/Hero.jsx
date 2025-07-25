@@ -96,11 +96,11 @@ const Hero = () => {
 
 
     return (
-        <div id='hero' className='relative h-screen overflow-clip w-full bg-[var(--primary-color)]'>
-            <div className='absolute  px-[2rem] w-full bottom-[0.5rem] left-[50%] -translate-x-1/2 whitespace-nowrap z-[5] text-white'>
-                <h1 className='hero-slide-up-heading secondary-font leading-none text-[1.3rem] font-[300] text-right overflow-hidden'>We are on Shark Tank
+        <div id='hero' className='relative h-screen overflow-hidden w-full bg-[var(--primary-color)]'>
+            <div className='h-[93vh] md:h-fit flex flex-col justify-between py-[10rem] md:py-0 absolute  px-[2rem] w-full  bottom-[0.5rem] left-[50%] -translate-x-1/2 whitespace-nowrap z-[5] text-white'>
+                <h1 className='hero-slide-up-heading secondary-font leading-none text-[2.5rem] md:text-[1.3rem] font-[300] text-right overflow-hidden'>We are on Shark Tank
                     <a href="#" className='inline-block ml-[0.5rem] aspect-square border-[1px] border-white px-[0.1rem] rounded-md'><i className="ri-arrow-right-up-line mt-[0.1rem]"></i></a></h1>
-                <h1 className='hero-slide-up-heading primary-font opacity-50 leading-none  text-[8.3vw] font-bold overflow-hidden'>
+                <h1 className='hero-slide-up-heading primary-font opacity-50 leading-none text-[13vw] text-wrap md:text-nowrap md:text-[8.2vw] font-bold overflow-hidden'>
                     Earth's Perfect nut.
                 </h1>
             </div>

@@ -1,111 +1,102 @@
-import React from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import piliCoconutImg from "../assets/images/products/pili_coconut.webp"
 import "../index.css"
+import { PHContext } from '../context/PHContextProviders';
+import { useParams } from 'react-router';
+
 
 const Details = () => {
-  React.useEffect(() => {
+  const {setProductsData, selectedProduct} = useContext(PHContext);
+  const [quantity, setQuantity] = useState(1);
+  const [addedToCart, setAddedToCart] = useState(false);
+
+  console.log(selectedProduct);
+
+  const addToCart = () => {
+    setProductsData(prevState => 
+      prevState.map(product => 
+        product.name === selectedProduct.name ? {...product, isAddedToCart: true} : product
+      )
+    );
+    
+    setAddedToCart(true);
+  }
+
+  useEffect(() => {
     const font = new FontFace('primary-font', 'url(/fonts/primary_font.woff2)');
     document.fonts.add(font);
   }, [])
 
   return (
-    <div className='min-h-screen py-[8rem] px-[2rem] flex gap-[5rem] justify-center'>
+    <div className='min-h-screen pt-[10rem] md:pt-[8rem] pb-[5rem] px-[2rem] flex flex-col md:flex-row gap-[3rem] md:gap-[5rem] justify-center overflow-x-hidden'>
       <div className='relative flex gap-[2rem]'>
-        <div className='w-[4rem] flex gap-[2rem] pt-[1rem] flex-col justify-start h-fit'>
-          <img src={piliCoconutImg} alt="" className='drop-shadow-[0_3px_5px_rgba(0,0,0,0.25)] w-full h-full object-contain' />
-          <img src={piliCoconutImg} alt="" className='drop-shadow-[0_3px_5px_rgba(0,0,0,0.25)] w-full h-full object-contain' />
+        <div className='hidden md:flex w-[4rem] gap-[2rem] pt-[1rem] flex-col justify-start h-fit'>
+          <img src={selectedProduct.image} alt="" className='drop-shadow-[0_3px_5px_rgba(0,0,0,0.25)] w-full h-full object-contain' />
+          <img src={selectedProduct.image} alt="" className='drop-shadow-[0_3px_5px_rgba(0,0,0,0.25)] w-full h-full object-contain' />
         </div>
-        <div className='w-full h-[70vh] border-[1px] border-[var(--primary-color)] p-[2rem] rounded-md'>
-          <img src={piliCoconutImg} alt="" className='drop-shadow-[0_3px_5px_rgba(0,0,0,0.25)] w-full h-full object-contain' />
+        <div className='w-full h-[30vh] md:h-[70vh] border-[1px] border-[var(--primary-color)] p-[2rem] rounded-md'>
+          <img src={selectedProduct.image} alt="" className='drop-shadow-[0_3px_5px_rgba(0,0,0,0.25)] w-full h-full object-contain' />
         </div>
       </div>
 
-      <div className='w-[35%] relative flex justify-center gap-[5rem]'>
+      <div className='w-full md:w-[35%] relative flex justify-center gap-[5rem]'>
         <div>
-          <h2 className='primary-font text-[2rem] leading-[2.3rem]'>Organic Coconut Oil & Himalayan Salt</h2>
-          <p className='secondary-font text-[1.5rem] mt-[0.2rem]'>&#8377;3,300.00</p>
+          <h2 className='primary-font text-[2.3rem] leading-[2.8rem] md:text-[2rem] md:leading-[2.3rem]'>{selectedProduct.name}</h2>
+          <p className='secondary-font text-[2.6rem] md:text-[1.5rem] mt-[1rem] md:mt-[0.2rem]'>&#8377;{selectedProduct.price}</p>
 
-          <div className='flex gap-[0.5rem] items-center mt-[1rem]'>
-            <div className='flex gap-[0.1rem] text-yellow-300'>
+          <div className='flex gap-[0.7rem] md:gap-[0.5rem] items-center mt-[1rem]'>
+            <div className='flex gap-[0.1rem] text-[1.8rem] md:text-[1.2rem] text-yellow-300'>
               <i className="ri-star-fill"></i>
               <i className="ri-star-fill"></i>
               <i className="ri-star-fill"></i>
               <i className="ri-star-fill"></i>
               <i className="ri-star-fill"></i>
             </div>
-            <span className='text-[1.1rem]'>reviews</span>
+            <span className='text-[1.8rem] md:text-[1.1rem]'>{selectedProduct.reviews} reviews</span>
           </div>
 
-          <p className='mt-[1rem]'>The Original savory flavor that started the pili nut craze in the keto community.</p>
+          <p className='text-[1.8rem] md:text-[1rem] mt-[1.5rem] md:mt-[1rem]'>{selectedProduct.description? selectedProduct.description : ""}</p>
 
-          <div className='mt-[1rem]'>
-            <p className='secondary-font text-[1.1rem]'><span className='font-bold'>Size:</span> 1lb($2.24/oz)</p>
-            <div className='flex gap-[1rem] mt-[0.5rem]'>
+          <div className='mt-[1.5rem] md:mt-[1rem]'>
+            <p className='secondary-font text-[1.9rem] md:text-[1.1rem]'><span className='font-bold'>Size:</span> 1lb($2.24/oz)</p>
+            <div className='flex flex-wrap md:flex-nowrap gap-[1rem] mt-[0.5rem] text-[1.8rem] md:text-[1rem] overflow-scroll hide-scrollbar'>
               <button className='border-[1px] border-[var(--primary-color)] px-[1rem] py-[0.5rem] rounded-md bg-[var(--primary-color)] text-white'>1 lb($2.24/oz)</button>
               <button className='border-[1px] border-[var(--primary-color)] px-[1rem] py-[0.5rem] rounded-md'>5 oz($3.00/oz)</button>
               <button className='border-[1px] border-[var(--primary-color)] px-[1rem] py-[0.5rem] rounded-md'>1.85 oz($3.24/oz)</button>
             </div>
           </div>
 
-          <div className='mt-[1rem]'>
-            <p>Quantity:</p>
-            <div className='flex gap-[1rem] mt-[0.5rem]'>
-              <button className='border-[1px] border-[var(--primary-color)] px-[1rem] rounded-md'>-</button>
-              <span>1</span>
-              <button className='border-[1px] border-[var(--primary-color)] px-[1rem] rounded-md'>+</button>
+          <div className='mt-[1.5rem] md:mt-[1rem]'>
+            <p className='text-[1.8rem] md:text-[1rem]'>Quantity:</p>
+            <div className='flex gap-[1.5rem] md:gap-[1rem] mt-[1rem] md:mt-[0.5rem] text-[1.8rem] md:text-[1rem]'>
+              <button onClick={() => setQuantity(quantity > 1 ? quantity - 1 : quantity)} className='border-[1px] border-[var(--primary-color)] px-[1rem] rounded-md'>-</button>
+              <span className=''>{quantity}</span>
+              <button onClick={() => setQuantity(quantity + 1)} className='border-[1px] border-[var(--primary-color)] px-[1rem] rounded-md'>+</button>
             </div>
           </div>
 
-          <button className='bg-orange-500 text-white px-[1rem] py-[0.5rem] rounded-md mt-[2rem]'>Add to Cart</button>
+          <button onClick={addToCart} className='text-[1.8rem] md:text-[1rem] bg-orange-500 text-white px-[1.5rem] md:px-[1rem] py-[0.7rem] md:py-[0.5rem] rounded-xl md:rounded-md mt-[2rem]'>{ addedToCart || selectedProduct.isAddedToCart ? "Added to Cart" : "Add to Cart"}</button>
 
           <div className='z-[150] flex fixed bottom-0 left-0 w-full bg-[var(--primary-color)] text-white p-[0.5rem] mt-[2rem]'>
-            <div className='marquee shrink-0 flex items-center pr-[1rem]'>
-              <h4>Buy More & Save! Mix & Match 1lb bags</h4>
-              <span className='ml-[1rem]'>-</span>
+            {
+              Array.from({ length: 3 }).map((_, index) => (
+                <div key={index} className='marquee shrink-0 flex items-center pr-[1rem] text-[1.8rem] md:text-[1rem]'>
+                  <h4>Buy More & Save! Mix & Match 1lb bags</h4>
+                  <span className='ml-[1rem]'>-</span>
 
-              <ul className='flex gap-[1rem] ml-[1rem]'>
-                <li>Buy 2 Save 5%</li>
-                <span className='ml-[1rem]'>-</span>
-                <li>Buy 3 Save 10%</li>
-                <span className='ml-[1rem]'>-</span>
-                <li>Buy 4+ Save 15%</li>
-                <span className='ml-[1rem]'>-</span>
-                <li>And Free Shipping On Order &#8377; 5000+</li>
-                <span className=''>-</span>
-              </ul>
-            </div>
-
-            <div className='marquee shrink-0 flex items-center pr-[1rem]'>
-              <h4>Buy More & Save! Mix & Match 1lb bags</h4>
-              <span className='ml-[1rem]'>-</span>
-
-              <ul className='flex gap-[1rem] ml-[1rem]'>
-                <li>Buy 2 Save 5%</li>
-                <span className='ml-[1rem]'>-</span>
-                <li>Buy 3 Save 10%</li>
-                <span className='ml-[1rem]'>-</span>
-                <li>Buy 4+ Save 15%</li>
-                <span className='ml-[1rem]'>-</span>
-                <li>And Free Shipping On Order &#8377; 5000+</li>
-                <span className=''>-</span>
-              </ul>
-            </div>
-
-            <div className='marquee shrink-0 flex items-center pr-[1rem]'>
-              <h4>Buy More & Save! Mix & Match 1lb bags</h4>
-              <span className='ml-[1rem]'>-</span>
-
-              <ul className='flex gap-[1rem] ml-[1rem]'>
-                <li>Buy 2 Save 5%</li>
-                <span className='ml-[1rem]'>-</span>
-                <li>Buy 3 Save 10%</li>
-                <span className='ml-[1rem]'>-</span>
-                <li>Buy 4+ Save 15%</li>
-                <span className='ml-[1rem]'>-</span>
-                <li>And Free Shipping On Order &#8377; 5000+</li>
-                <span className=''>-</span>
-              </ul>
-            </div>
+                  <ul className='flex gap-[1rem] ml-[1rem]'>
+                    <li>Buy 2 Save 5%</li>
+                    <span className='ml-[1rem]'>-</span>
+                    <li>Buy 3 Save 10%</li>
+                    <span className='ml-[1rem]'>-</span>
+                    <li>Buy 4+ Save 15%</li>
+                    <span className='ml-[1rem]'>-</span>
+                    <li>And Free Shipping On Order &#8377; 5000+</li>
+                    <span className=''>-</span>
+                  </ul>
+                </div>
+              ))
+            }
 
           </div>
         </div>

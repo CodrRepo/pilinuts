@@ -9,7 +9,7 @@ import Customers from '../components/Customers'
 import { useContext, useEffect } from 'react'
 import { PHContext } from '../context/PHContextProviders'
 const Home = () => {
-    const {showFooter, setShowFooter} = useContext(PHContext);
+    const {showFooter, setShowFooter, setIsMobile} = useContext(PHContext);
   useEffect(() => {
     setShowFooter(true);
   }, [showFooter]);

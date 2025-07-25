@@ -17,26 +17,26 @@ const Clients = () => {
 
   ]
 
-  useSlideUpAnimation(".customer-heading", ".customer-heading", "65%");
+  useSlideUpAnimation(".customer-heading", ".customer-heading", "80%");
 
   return (
     <div id='customers' className='bg-white pt-[5rem] relative z-[60]'>
 
-      <div className='pt-[3rem] bg-[var(--primary-color)]'>
-      <h2 className='customer-heading primary-font text-[3rem] text-white leading-none text-center px-[2rem]'>
+      <div className='pt-[5rem] md:pt-[3rem] bg-[var(--primary-color)]'>
+      <h2 className='customer-heading primary-font text-[3.5rem] md:text-[3rem] leading-[3.8rem] md:leading-none text-white text-center px-[2rem]'>
         As <span className='text-[var(--dark-primary-color)]'>Seen</span> On
       </h2>
-      <p className='secondary-font mt-[1rem] text-[1.3rem] leading-[1.7rem] text-white/70 text-center w-[70%] mx-auto px-[2rem]'>Pili Hunters was featured on Shark Tank and top media outlets, gaining praise for its sustainable, nutrient-rich pili nuts and inspiring adventure-filled brand story.</p>
+      <p className='secondary-font mt-[2rem] md:mt-[1rem] text-[2rem] md:text-[1.2rem] leading-[2.3rem] md:leading-[1.5rem] text-white/70 text-center w-full md:w-[70%] mx-auto px-[2rem]'>Pili Hunters was featured on Shark Tank and top media outlets, gaining praise for its sustainable, nutrient-rich pili nuts and inspiring adventure-filled brand story.</p>
 
-      <div className='flex flex-col justify-center items-center mt-[2rem]'>
-        <div className='flex gap-[0.1rem] text-[1.2rem] text-yellow-300'>
+      <div className='flex flex-col justify-center items-center mt-[3rem] md:mt-[2rem]'>
+        <div className='flex gap-[0.1rem] text-[1.8rem] md:text-[1.2rem] text-yellow-300'>
                       <i className="ri-star-fill"></i>
                       <i className="ri-star-fill"></i>
                       <i className="ri-star-fill"></i>
                       <i className="ri-star-fill"></i>
                       <i className="ri-star-fill"></i>
         </div>
-        <p className='secondary-font text-[1.2rem] text-white/70 text-right px-[2rem]'>Over <span className='font-bold text-[var(--dark-primary-color)]'>8,500</span> 5-Star Reviews</p>
+        <p className='secondary-font text-[2rem] md:text-[1.2rem] text-white/70 text-right px-[2rem]'>Over <span className='font-bold text-[var(--dark-primary-color)]'>8,500</span> 5-Star Reviews</p>
       </div>
 
       <div className='flex overflow-hidden'>
@@ -44,7 +44,7 @@ const Clients = () => {
           {
             customers.map((customer, index) => {
               return (
-                <img key={index} className='shrink-0 w-[13rem] aspect-square object-contain' src={customer} alt="" />
+                <img key={index} className='shrink-0 w-[17rem] md:w-[13rem] aspect-square object-contain' src={customer} alt="" />
               )
             })
           }
@@ -53,7 +53,7 @@ const Clients = () => {
           {
             customers.map((customer, index) => {
               return (
-                <img key={index} className='shrink-0 w-[13rem] aspect-square object-contain' src={customer} alt="" />
+                <img key={index} className='shrink-0 w-[17rem] md:w-[13rem] aspect-square object-contain' src={customer} alt="" />
               )
             })
           }
