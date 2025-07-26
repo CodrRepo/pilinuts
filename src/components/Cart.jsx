@@ -22,7 +22,7 @@ const Cart = () => {
                     return (
                         <div key={index} className=' relative rounded-md border-[1px] border-[var(--primary-color)] overflow-hidden'>
                                 <i onClick={() => removeFromCart(item)} className="ri-delete-bin-line text-[2.5rem] md:text-[1.3rem] aspect-square cursor-pointer absolute top-[0.5rem] right-[85%] md:right-[0.5rem] z-[100] bg-[var(--light-primary-color)] rounded-full py-[0.3rem] px-[0.5rem] text-red-400 "></i>
-                            <Link onClick={() => setSelectedProduct(item)} to={`/details/${index}`} className='flex md:flex-col justify-end items-center h-full'>
+                            <Link onClick={() => setSelectedProduct(item)} to={`/details/${productsData.indexOf(item)}`} className='flex md:flex-col justify-end items-center h-full'>
                                 <div className='relative w-[45%] md:w-full p-[1rem]'>
                                     <img className='drop-shadow-[0_3px_5px_rgba(0,0,0,0.25)] mx-auto w-[8rem] h-[12rem] object-contain relative z-[40]' src={item.image} alt="" />
                                 </div>

@@ -18,7 +18,7 @@ const PHContextProviders = ({ children }) => {
             reviews: "528",
             description: "The Original savory flavor that started the pili nut craze in the keto community.",
             category: ["Sproted Pili Nuts", "Bestsellers"],
-            isAddedToCart: true
+            isAddedToCart: false
         },
         {
             name: "Healthy Fried In Avocado Oil Keto, Vegan, Paleo",
@@ -115,9 +115,6 @@ const PHContextProviders = ({ children }) => {
     const [showFooter, setShowFooter] = useState(true);
     const [isMobile, setIsMobile] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const [selectedProduct, setSelectedProduct] = useState(null);
-    // const [cartData, setCartData] = useState([
-    // ]);
 
     useEffect(() => {
         const handleResize = () => {
@@ -134,7 +131,7 @@ const PHContextProviders = ({ children }) => {
 
     return (
         <PHContext.Provider value={{ productsData, setProductsData, showFooter, setShowFooter, isMobile,
-        setIsMobile, isMenuOpen, setIsMenuOpen, selectedProduct, setSelectedProduct}}>
+        setIsMobile, isMenuOpen, setIsMenuOpen,}}>
             {children}
         </PHContext.Provider>
     )

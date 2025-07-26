@@ -16,7 +16,7 @@ import { PHContext } from '../context/PHContextProviders';
 
 const ProductShowcase = () => {
 
-  const {isMobile} = useContext(PHContext);
+  const { isMobile } = useContext(PHContext);
 
   const showcaseProducts = [
     {
@@ -40,7 +40,7 @@ const ProductShowcase = () => {
       image: 'https://eatpilinuts.com/cdn/shop/products/Pili-1lb_Plain-front_500x.png?v=1650065938'
     },
   ];
-  
+
   useSlideUpAnimation("#ps-main-heading", "#productShowcase", "65%");
 
 
@@ -55,7 +55,22 @@ const ProductShowcase = () => {
       </h2>
 
 
-      <Swiper
+      {!isMobile ? <div className='grid grid-cols-1 md:grid-cols-5 gap-[1rem] mt-[2rem]'>
+        {
+          showcaseProducts.map((item, index) => {
+            return (
+              <div key={index} className='relative overflow-hidden rounded-md'>
+                <div className='bg-[var(--primary-color)]/10 p-[3rem] md:p-[1rem] flex items-center justify-center'>
+                  <img style={{ opacity: item.image != "#" ? 1 : 0 }} className='drop-shadow-[0_10px_5px_rgba(0,0,0,0.25)] w-[80%] md:w-full aspect-square rounded-md object-contain' src={item.image} alt="" />
+                </div>
+                <div className='relative !z-[100]'>
+                  <p className='secondary-font relative !z-[100] text-[2rem] md:text-[1rem] leading-[2.5rem] md:leading-[1.3rem] h-[9rem] md:h-[6rem] xl:h-[4.3rem]  text-white text-center bg-[var(--primary-color)] p-[1rem]'>{item.name}SD</p>
+                </div>
+              </div>
+            )
+          })
+        }
+      </div> : <Swiper
         slidesPerView={isMobile ? 1 : 5}
         spaceBetween={10}
         freeMode={isMobile ? false : true}
@@ -63,24 +78,27 @@ const ProductShowcase = () => {
           clickable: true,
         }}
         modules={[FreeMode, Pagination]}
-        className="mySwiper"
+        className="mySwiper overflow-visible relative"
       >
         {
           showcaseProducts.map((product, index) => {
             return (
-              <SwiperSlide key={index} className='rounded-xl md:rounded-md overflow-hidden'>
-                <div key={index} className='bg-[var(--primary-color)]/10 p-[3rem] md:p-[1rem] flex items-center justify-center'>
-                  <img style={{ opacity: product.image != "#" ? 1 : 0 }} className='drop-shadow-[0_10px_5px_rgba(0,0,0,0.25)] w-[80%] md:w-full aspect-square rounded-md object-contain' src={product.image} alt="" />
-                </div>
-                <div className='z-[100] relative'>
-                <p className='secondary-font relative z-[50] text-[2rem] md:text-[1rem] leading-[2.5rem] md:leading-[1.3rem] h-[9rem] md:h-[6rem] xl:h-[4.3rem]  text-white text-center bg-[var(--primary-color)] p-[1rem] overflow-hidden'>{product.name}</p>
+              <SwiperSlide key={index}>
+                <div className='relative overflow-hidden rounded-md'>
+                  <div key={index} className='bg-[var(--primary-color)]/10 p-[3rem] md:p-[1rem] flex items-center justify-center'>
+                    <img style={{ opacity: product.image != "#" ? 1 : 0 }} className='drop-shadow-[0_10px_5px_rgba(0,0,0,0.25)] w-[80%] md:w-full aspect-square rounded-md object-contain' src={product.image} alt="" />
+                  </div>
+                  <div className='relative z-[100]'>
+                    <p className='secondary-font relative !z-[100] text-[2rem] md:text-[1rem] leading-[2.5rem] md:leading-[1.3rem] h-[9rem] md:h-[6rem] xl:h-[4.3rem]  text-white text-center bg-[var(--primary-color)] p-[1rem]'>{product.name}</p>
+                  </div>
                 </div>
               </SwiperSlide>
             )
           })
         }
       </Swiper>
-    </div>
+      }
+    </div >
   )
 }
 

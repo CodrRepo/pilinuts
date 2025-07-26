@@ -16,7 +16,7 @@ import useSlideUpAnimation from '../animations/useSlideUpAnimation';
 
 const Shop = () => {
     const categoryRef = useRef([null]);
-    const { productsData, setSelectedProduct, showFooter, setShowFooter} = React.useContext(PHContext);
+    const { productsData, showFooter, setShowFooter} = React.useContext(PHContext);
     const piliNutsData = [
         {
             x: "35%",
@@ -174,11 +174,11 @@ useSlideUpAnimation("#shop-main-heading", "#shop", "100%");
                 })}
             </div>
 
-            <div className='grid grid-cols-1 md:grid-cols-5 gap-[1rem] my-[2rem]'>
+            <div className='grid grid-cols-1 md:grid-cols-4 xl:grid-cols-5 gap-[1rem] my-[2rem]'>
                 {
                     filteredProducts.map((item, index) => {
                         return (
-                            <Link onClick={()=>setSelectedProduct(item)} to={`/details/${index}`} key={index} className='flex md:flex-col justify-end items-center rounded-md border-[1px] border-[var(--primary-color)] overflow-hidden'>
+                            <Link to={`/details/${productsData.indexOf(item)}`} key={index} className='flex md:flex-col justify-end items-center rounded-md border-[1px] border-[var(--primary-color)] overflow-hidden'>
                                 <div className='relative w-[45%] md:w-full p-[1rem]'>
                                     <img className='drop-shadow-[0_3px_5px_rgba(0,0,0,0.25)] mx-auto w-[8rem] h-[12rem] object-contain relative z-[40]' src={item.image} alt="" />
                                 </div>
