@@ -61,7 +61,7 @@ const NavMenu = () => {
     }, [isMenuOpen]);
 
     return (
-        <div id="navMenu" className='bg-white translate-x-[100%] flex flex-col justify-center fixed top-0 z-[100] h-screen w-full px-[2rem] pt-[2rem] pb-[2rem]'>
+        <div id="navMenu" className='bg-white translate-x-[100%] flex flex-col justify-center fixed top-0 z-[100000] h-screen w-full px-[2rem] pt-[2rem] pb-[2rem]'>
             <i onClick={() => setIsMenuOpen(false)} className="ri-close-large-line absolute top-[1.5rem] right-[2rem] cursor-pointer text-[3.4rem] z-[200]"></i>
 
             <div id='nav-top' className='h-[25%]'>
