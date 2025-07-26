@@ -2,10 +2,11 @@ import React, { useContext, useEffect, useState } from 'react'
 import piliCoconutImg from "../assets/images/products/pili_coconut.webp"
 import "../index.css"
 import { PHContext } from '../context/PHContextProviders';
-import { useParams } from 'react-router';
+import { useNavigate, useParams } from 'react-router';
 
 
 const Details = () => {
+  const navigate = useNavigate();
   const {productsData,setProductsData} = useContext(PHContext);
   const [quantity, setQuantity] = useState(1);
   const [addedToCart, setAddedToCart] = useState(false);
@@ -28,14 +29,17 @@ const Details = () => {
   }, [])
 
   return (
-    <div className='min-h-screen pt-[10rem] md:pt-[8rem] pb-[5rem] px-[2rem] flex flex-col md:flex-row gap-[3rem] md:gap-[5rem] justify-center overflow-x-hidden'>
+    <div className='min-h-screen pt-[15rem] md:pt-[12rem] pb-[5rem] px-[2rem] flex flex-col md:flex-row gap-[3rem] md:gap-[5rem] justify-center overflow-x-hidden'>
       <div className='relative flex gap-[2rem]'>
         <div className='hidden md:flex w-[4rem] gap-[2rem] pt-[1rem] flex-col justify-start h-fit'>
           <img src={productsData[id].image} alt="" className='drop-shadow-[0_3px_5px_rgba(0,0,0,0.25)] w-full h-full object-contain' />
           <img src={productsData[id].image} alt="" className='drop-shadow-[0_3px_5px_rgba(0,0,0,0.25)] w-full h-full object-contain' />
         </div>
+        <div className='relative w-full'>
+        <i className="ri-arrow-left-line text-[4rem] md:text-[2rem] text-[var(--primary-color)] absolute top-[-25%] md:top-[-10%] left-[0%] cursor-pointer" onClick={() => navigate(-1)}></i>
         <div className='w-full h-[30vh] md:h-[70vh] border-[1px] border-[var(--primary-color)] p-[2rem] rounded-md'>
           <img src={productsData[id].image} alt="" className='drop-shadow-[0_3px_5px_rgba(0,0,0,0.25)] w-full h-full object-contain' />
+        </div>
         </div>
       </div>
 
