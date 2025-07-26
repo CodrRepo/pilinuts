@@ -16,7 +16,7 @@ const Details = () => {
   const addToCart = () => {
     setProductsData(prevState => 
       prevState.map(product => 
-        product.name === productsData[id].name ? {...product, isAddedToCart: true} : product
+        product.name === productsData[id].name ? {...product, isAddedToCart: true, quantity: quantity} : product
       )
     );
     

@@ -16,7 +16,7 @@ const Cart = () => {
   return (
     <div className='min-h-screen pt-[10rem] pb-[5rem] px-[2rem] rounded-xl md:rounded-md overflow-hidden'>
         {filteredProducts.length > 0 ? <h2 className='primary-font text-[2.7rem] leading-[3rem] md:text-[2.3rem] md:leading-[2.6rem] text-center text-[var(--primary-color)] overflow-hidden'>Your Cart Items</h2> : null}
-        {filteredProducts.length > 0 ? <div className='grid grid-cols-1 md:grid-cols-5 gap-[1rem] bg-[var(--light-primary-color)] p-[2rem] mt-[2rem]'>
+        {filteredProducts.length > 0 ? <div className='grid grid-cols-1 md:grid-cols-4 xl:grid-cols-5 gap-[1rem] bg-[var(--light-primary-color)] p-[2rem] mt-[2rem]'>
             {
                 filteredProducts.map((item, index) => {
                     return (
@@ -25,6 +25,7 @@ const Cart = () => {
                             <Link to={`/details/${productsData.indexOf(item)}`} className='flex md:flex-col justify-end items-center h-full'>
                                 <div className='relative w-[45%] md:w-full p-[1rem]'>
                                     <img className='drop-shadow-[0_3px_5px_rgba(0,0,0,0.25)] mx-auto w-[8rem] h-[12rem] object-contain relative z-[40]' src={item.image} alt="" />
+                                    <span className='text-[1.8rem] md:text-[1rem] absolute bottom-[0rem] left-[0%] md:left-auto right-auto md:right-[0rem] z-[100]   py-[0.3rem] px-[0.5rem] bg-orange-600 text-white md:rounded-t-md rounded-tr-md'>{item.quantity}pcs.</span>
                                 </div>
 
                                 <div className='w-[55%] md:w-full h-full md:h-auto py-[0.5rem] px-[1rem] flex flex-col justify-center items-center bg-[var(--primary-color)] text-white'>

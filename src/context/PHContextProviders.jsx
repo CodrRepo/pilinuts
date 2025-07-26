@@ -18,7 +18,8 @@ const PHContextProviders = ({ children }) => {
             reviews: "528",
             description: "The Original savory flavor that started the pili nut craze in the keto community.",
             category: ["Sproted Pili Nuts", "Bestsellers"],
-            isAddedToCart: false
+            isAddedToCart: false,
+            quantity: 1
         },
         {
             name: "Healthy Fried In Avocado Oil Keto, Vegan, Paleo",
@@ -27,7 +28,8 @@ const PHContextProviders = ({ children }) => {
             reviews: "448",
             description: "The Original savory flavor that started the pili nut craze in the keto community.",
             category: ["Sproted Pili Nuts", "Bestsellers"],
-            isAddedToCart: false
+            isAddedToCart: false,
+            quantity: 1
         },
         {
             name: "Raw Cacao & Organic Coconut Sugar",
@@ -36,7 +38,8 @@ const PHContextProviders = ({ children }) => {
             reviews: "361",
             description: "Rich and creamy, this buttery variety is perfect for those who love a rich and indulgent flavor.",
             category: ["Sproted Pili Nuts", "Bestsellers"],
-            isAddedToCart: false
+            isAddedToCart: false,
+            quantity: 1
         },
         {
             name: "Spicy Labuyo Chili",
@@ -45,7 +48,8 @@ const PHContextProviders = ({ children }) => {
             reviews: "258",
             description: "A spicy and flavorful variety that will add a kick to any dish.",
             category: ["Sproted Pili Nuts", "Bestsellers"],
-            isAddedToCart: false
+            isAddedToCart: false,
+            quantity: 1
         },
         {
            name: "Pili Hunters™ Keto PiliBar", 
@@ -54,7 +58,8 @@ const PHContextProviders = ({ children }) => {
            reviews: "143",
            description: "The Original savory flavor that started the pili nut craze in the keto community.",
            category: ["Specialty Products"],
-           isAddedToCart: false
+           isAddedToCart: false,
+           quantity: 1
         },
         {
            name: "PiliBar 3 Grams Coconut Sugar", 
@@ -63,7 +68,8 @@ const PHContextProviders = ({ children }) => {
            reviews: "33",
            description: "",
            category: ["Specialty Products"],
-           isAddedToCart: false
+           isAddedToCart: false,
+           quantity: 1
         },
         {
            name: "Pili Hunters™ Buyo Fermented Hot Sauce", 
@@ -72,7 +78,8 @@ const PHContextProviders = ({ children }) => {
            reviews: "81",
            description: "",
            category: ["Specialty Products", "Bestsellers"],
-           isAddedToCart: false
+           isAddedToCart: false,
+           quantity: 1
         },
         {
            name: "Natural Unsalted Cooking Quality (Plain) BEST FOR COOKING", 
@@ -81,7 +88,8 @@ const PHContextProviders = ({ children }) => {
            reviews: "253",
            description: "",
            category: ["Warehouse Sale"],
-           isAddedToCart: false
+           isAddedToCart: false,
+           quantity: 1
         },
         {
            name: "Traditional Filipino Style (Sweet Pinoy Style)", 
@@ -90,7 +98,8 @@ const PHContextProviders = ({ children }) => {
            reviews: "48",
            description: "",
            category: ["Warehouse Sale", "Bestsellers"],
-           isAddedToCart: false
+           isAddedToCart: false,
+           quantity: 1
         },
         {
            name: "6-pack Pili Hunters™ Nut Variety FREE SHIPPING!", 
@@ -99,7 +108,8 @@ const PHContextProviders = ({ children }) => {
            reviews: "248",
            description: "",
            category: ["Variety Packs"],
-           isAddedToCart: false
+           isAddedToCart: false,
+           quantity: 1
         },
         {
            name: "Large 4 pack 5 oz Bags Pili Hunters Pink Himalayan, Coconut Oil, Cacao, Pinoy free shipping", 
@@ -108,7 +118,8 @@ const PHContextProviders = ({ children }) => {
            reviews: "0",
            description: "",
            category: ["Variety Packs"],
-           isAddedToCart: false
+           isAddedToCart: false,
+           quantity: 1
         }
     ]);
 
